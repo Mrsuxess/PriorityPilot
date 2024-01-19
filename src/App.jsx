@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [mine, setMine] = useState(0)
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import { Added } from "./component/added";
+import {Add} from "./component/add";
+import { Auth } from './component/auth';
+
+function App() {
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setMine((mine) => mine - 1)}>
-          count is {mine}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+   
+      
+      <Router>
+        <Routes>
+          <Route path = '/' element= {<Auth />}  />
+          <Route path = '/addTask' element = {<Add />} />
+          <Route path = '/Task' element = {<Added />} />
+        </Routes>
+      </Router>
+
+   
+
+    </div>
   )
 }
 
